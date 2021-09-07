@@ -11,6 +11,7 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, "dist"),
     filename: "bundle.js",
+    clean: true,
     publicPath: '/',
   },
   module: {
@@ -24,7 +25,7 @@ module.exports = {
       },
       {
         test: /\.s[ac]ss$/i,
-        use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader'],
+        use: [MiniCssExtractPlugin.loader, 'css-loader','sass-loader'],
         exclude: /node_modules/
       }
     ],
@@ -34,7 +35,7 @@ module.exports = {
       template:'./src/index.html',
       filename: './index.html'
     }),
-    new MiniCssExtractPlugin({ filename: 'style.css' }),
+    new MiniCssExtractPlugin({ filename: 'index.css' }),
   ],
   devtool: 'inline-source-map',
 }
